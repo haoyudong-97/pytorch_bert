@@ -527,12 +527,6 @@ def main():
         print("Loading Train Dataset", args.train_file)
         train_dataset = BERTDataset(args.train_file, tokenizer, seq_len=args.max_seq_length,
                                     corpus_lines=None, on_memory=args.on_memory)
-        print('old')
-        print(train_dataset[0])
-        print(train_dataset[1])
-        train_dataset = [train_dataset[i] for i in range(len(train_dataset))]
-        print('new')
-        print(train_dataset)
         num_train_steps = int(
             len(train_dataset) / args.train_batch_size / args.gradient_accumulation_steps * args.num_train_epochs)
 
